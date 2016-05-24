@@ -1,0 +1,51 @@
+1. D
+2. E
+3. Usando os modificadores de acesso. São eles:
+	- Public: Qualquer classe que extenda a classe pai poderá acessar o atributo ou método.
+	- Private: Apenas a classe que define o atributo/método terá acesso ao mesmo.
+	- Protected: Apenas classes que herdam ou classes que estejam no mesmo pacote poderão acessar as variáveis/métodos.
+4. D
+5. a-V, b-V, c-F, d-V, e-F
+6. Herança e polimorfismo.
+
+7. Exemplo resumido de código:
+
+// interface
+public interface FazerLogin {
+	String getEmail();
+}
+
+// classe que implementa
+public class Usuario implements FazerLogin {
+
+	private String email;
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	@Override
+	public String getEmail() {
+		return email;
+	}
+}
+
+// exemplo de uso
+public class Login {
+
+	public void login(FazerLogin fazerLogin) {
+		System.out.println("Bem vindo: " + fazerLogin.getEmail());
+	}
+
+	public static void main(String[] args) {
+		Usuario usuario = new Usuario();
+		usuario.setEmail("mauricioa.grando@gmail.com");
+
+		Login login = new Login();
+		login.login(usuario);
+	}
+
+}
+
+// saida final:
+Bem vindo: mauricioa.grando@gmail.com
